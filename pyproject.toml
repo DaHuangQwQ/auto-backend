@@ -1,0 +1,79 @@
+[project]
+name = "python-init"
+version = "0.0.0-alpha"
+description = "a python proj init"
+authors = [
+    {name = "DaHuangQwQ",email = "88641334+DaHuangQwQ@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv.sources]
+dbgpt = { workspace = true }
+dbgpt-client = { workspace = true }
+dbgpt-ext = { workspace = true }
+dbgpt-serve = { workspace = true }
+dbgpt-app = { workspace = true }
+dbgpt-acc-auto = { workspace = true }
+dbgpt-acc-flash-attn = { workspace = true }
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
+
+[tool.uv.workspace]
+members = [
+  "packages/dbgpt-app",
+  "packages/dbgpt-client",
+  "packages/dbgpt-core",
+  "packages/dbgpt-ext",
+  "packages/dbgpt-serve",
+  "packages/dbgpt-accelerator/dbgpt-acc*"
+]
+
+[tool.uv]
+managed = true
+dev-dependencies = [
+    "pip",
+    "tomli>=2.0.2",
+    "tomli-w>=1.1.0",
+    "pytest>=7.0.0",
+    "pytest_asyncio",
+    "twine",
+    "ruff>=0.9.1",
+    "pytest-mock>=3.14.0",
+    "asynctest>=0.13.0",
+    "pytest-integration>=0.2.3",
+    "pytest-recording>=0.13.2",
+    "pytest-cov>=6.0.0",
+    "jupyter",
+    "pre-commit>=4.2.0",
+    "mypy>=1.15.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["packages"]
+addopts = ["--import-mode=importlib", ]
+python_files = ["test_*.py", "*_test.py"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.format]
+# Format docstrings
+docstring-code-format = true
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.ruff.lint]
+# Enable: eror check, import order
+select = ["E", "F", "I"]
+
+#[tool.ruff.lint.isort]
+## Specify the local modules (first-party)
+#known-first-party = [""]
