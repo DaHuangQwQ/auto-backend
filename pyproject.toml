@@ -1,13 +1,17 @@
 [project]
-name = "python-init"
+name = "auto-backend"
 version = "0.0.0-alpha"
-description = "a python proj init"
+description = "a auto backend python proj by AI agent"
 authors = [
     {name = "DaHuangQwQ",email = "88641334+DaHuangQwQ@users.noreply.github.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "dotenv>=0.9.9",
+    "langchain-deepseek>=0.1.3",
+    "langgraph>=0.3.21",
+]
 
 [tool.uv.sources]
 dbgpt = { workspace = true }

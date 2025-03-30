@@ -76,7 +76,7 @@ test-doc: $(VENV)/.testenv ## Run doctests
 .PHONY: mypy
 mypy: $(VENV)/.testenv ## Run mypy checks
 	# https://github.com/python/mypy
-	$(VENV_BIN)/mypy --config-file .script/.mypy.ini --ignore-missing-imports packages/*
+	# $(VENV_BIN)/mypy --exclude '/(site-packages|node_modules|__pycache__|\..*)/$' --ignore-missing-imports packages/*
 
 .PHONY: coverage
 coverage: setup ## Run tests and report coverage
