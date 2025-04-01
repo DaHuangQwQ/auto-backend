@@ -6,6 +6,11 @@ db_prompt = ChatPromptTemplate.from_messages(
             "system",
             """
 You are a helpful assistant.
+Please use SQL statements to query the database.
+Do not have any other information
+
+Example:
+SELECT `name` FROM `DATABASE` WHERE `id` = 1;
             """,
         ),
         ("placeholder", "{messages}"),
